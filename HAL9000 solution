@@ -1,0 +1,100 @@
+/*
+OS Name:Microsoft Windows 10 Home Single Language
+Processor:Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz, 2401 Mhz, 2 Core(s), 4 Logical Processor(s)
+Application:Microsoft Visual Studio 2013 Professional Edition
+Coding Language used:C++
+*/
+
+/*
+Name:Anand Akshay
+Branch:BTech CSE:Section C 1st Year
+
+Brief Description of the Code:
+The following code uses character data type arrays to store the DNA strand information.
+The input can be both in capital letters or small letters. The execution of the program stops if the user enters anything other than A, T, G, C (Adenine, Thymine, Guanine, Cytosine)
+The Complementary Strand is formed using various switch-case statements which reduces the execution time of the algorithm.
+
+Both, the main DNA strand and the Complementary DNA strand are printed together.
+
+*/
+
+/*Main Program*/
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	/*Command to clear screen*/
+	system("cls");
+
+	/*Declaring Variables*/
+	char main_DNA[50];              //Main DNA Strand
+	char complementary_DNA[50];     //Complementary DNA Strand
+	int len;                        //Length of the strand
+
+	/*Taking length of the Strand from the user*/
+    cout << "Enter the length of the DNA strand(upto 50 characters):"; 
+	cin >> len;
+	
+	/*Taking the DNA Strand elements from the user*/
+	cout << "Enter the Main DNA strand:" << '\n';
+	for (int i = 0; i < len; i++)
+	{
+		cin >> main_DNA[i];
+	}
+
+	/*Creating complementary_DNA out of the given Main DNA Strand*/
+	for (int j = 0; j < len; j++)
+	{
+		switch (main_DNA[j])
+		{
+		case 'T':complementary_DNA[j] = 'A';
+			break;
+
+		case 'A':complementary_DNA[j] = 'T';
+			break;
+
+		case 'G':complementary_DNA[j] = 'C';
+			break;
+			
+		case 'C':complementary_DNA[j] = 'G';
+			break;
+
+		case 't':complementary_DNA[j] = 'A';
+			break;
+
+		case 'a':complementary_DNA[j] = 'T';
+			break;
+
+		case 'g':complementary_DNA[j] = 'C';
+			break;
+
+		case 'c':complementary_DNA[j] = 'G';
+			break;
+
+		default:cout << "invalid input!!";
+			exit(1);
+		}
+
+	}
+
+	/*Giving the required output to the user*/
+	cout << "The DNA sequence along with its complementary strand is: " << '\n';
+	for (int l = 0; l < len; l++)
+	{
+		cout << main_DNA[l] << ' ';
+	}
+	cout << '\n';
+
+	for (int m = 0; m < len; m++)
+	{
+		cout << complementary_DNA[m] << ' ';
+	}
+	cout << '\n';
+
+	system("pause");
+
+	return 0;
+
+}
